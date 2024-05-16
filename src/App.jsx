@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import searchRobots from './api';
 import SearchBar from './components/SearchBar';
 import RobotsList from './components/RobotsList';
-import searchRobots from './api';
 
 function App() {
     const [robots, setRobots] = useState([]);
 
     useEffect(() => {
         const fetchRobots = async () => {
-            try {
-                const result = await searchRobots();
-                setRobots(result);
-            } catch (error) {
-                console.error('Error fetching robots:', error);
-            }
+            const robotsData = await searchRobots();
+            setRobots(robotsData);
         };
 
         fetchRobots();
     }, []);
 
+    const handleSubmit = async (term) => {
+        const robotsData = await searchRobots(term);
+        setRobots(robotsData);
+    };
+
     return (
         <div>
-            <SearchBar />
+            <h1>MyRobots</h1>
+            <SearchBar onSubmit={handleSubmit} />
             <RobotsList robots={robots} />
         </div>
     );
