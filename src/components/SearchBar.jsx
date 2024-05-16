@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 function SearchBar({ onSubmit }) {
-    const [term, setTerm] = useState('');
+  const [term, setTerm] = useState('');
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        onSubmit(term);
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(term);
+  };
 
-    const handleChange = (event) => {
-        setTerm(event.target.value);
-    };
+  const handleChange = (event) => {
+    setTerm(event.target.value);
+  };
 
-    return (
-        <form onSubmit={handleFormSubmit}>
-            <input type="text" value={term} onChange={handleChange} />
-            <button type="submit">Search</button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={term} onChange={handleChange} />
+      <button type="submit">Search</button>
+    </form>
+  );
 }
 
 export default SearchBar;
