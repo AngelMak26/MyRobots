@@ -7,9 +7,11 @@ function RobotsList({ robots }) {
   ));
 
   return (
-    <div>
-      {renderRobots}
-    </div>
+    <div className="container ">
+            <div className="columns is-multiline">
+                {renderRobots} 
+            </div>
+        </div>
   );
 }
 

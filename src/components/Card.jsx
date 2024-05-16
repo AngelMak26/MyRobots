@@ -8,9 +8,9 @@ function Card({name, email }){
                     <figure className="image is-4by3">
                     <img
                         // src necesita el prop name
-                        src={`https://robohash.org/${image}`}
+                        src={`https://robohash.org/${name}`}
                         // alt necesita el prop email
-                        alt={`${image}`}
+                        alt={`${email}`}
                     />
                     </figure>
                 </div>
